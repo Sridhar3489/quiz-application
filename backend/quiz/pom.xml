@@ -85,6 +85,13 @@
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.24</version> <!-- Use the latest version available -->
+			<scope>provided</scope> <!-- 'provided' means it will be available
+			during compile-time, but not included in the final JAR -->
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<version>2.0.1.RELEASE</version>
