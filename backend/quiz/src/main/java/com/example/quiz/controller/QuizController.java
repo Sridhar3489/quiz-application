@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/quizzes")
+@CrossOrigin(origins = "http://localhost:5173") 
 public class QuizController {
 
     @Autowired
@@ -38,7 +39,7 @@ public class QuizController {
 
     @PostMapping("/generate-question")
     public Mono<String> generateQuestion(@RequestParam String topic) throws Exception {
-        return aiService.generateQuizQuestion("Generate a quiz question about " + topic);
+        return aiService.generateContent("JUST give questions regarding " + topic +" with various difficulty levels ");
     }
 
     @PostMapping
