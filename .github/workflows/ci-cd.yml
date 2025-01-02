@@ -27,5 +27,6 @@ jobs:
       - name: Build with Maven
         run: |
           cd backend
+          cd quiz
           mvn clean
           mvn -B package --file pom.xml
