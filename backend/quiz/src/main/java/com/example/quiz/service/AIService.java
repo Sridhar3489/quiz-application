@@ -34,8 +34,8 @@ public class AIService {
 	    headers.set("Content-Type", "application/json");
 	    headers.set("Authorization", "Bearer "+ OPENAI_API_KEY);
 	    
-	    
-	    HttpEntity<String> request = new HttpEntity<>(jsonPayload, headers);
+	    JSONObject json = new JSONObject(jsonPayload);
+	    HttpEntity<JSONObject> request = new HttpEntity<>(json, headers);
 	    System.out.println(request);
 
 	    RestTemplate restTemplate = new RestTemplate();
