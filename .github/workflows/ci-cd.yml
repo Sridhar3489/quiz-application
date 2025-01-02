@@ -32,8 +32,8 @@ jobs:
 
       - name: Build and test with Maven
         run: |
-          cd backend/quiz  # Navigate to the correct folder where pom.xml is located
-          mvn clean install -DskipTests=false  # Run tests during build
+          cd backend/quiz  
+          mvn clean install -X
           
       - name: Upload test results (optional)
         if: failure()
