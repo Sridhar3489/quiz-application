@@ -1,11 +1,10 @@
 package com.example.quiz.model;
 
-import lombok.Data;
 
 import jakarta.persistence.*;
 
 @Entity
-@Data
+
 public class UserAnswer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

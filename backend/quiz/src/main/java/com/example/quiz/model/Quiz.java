@@ -1,12 +1,11 @@
 package com.example.quiz.model;
 
-import lombok.Data;
 
 import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Data
+
 public class Quiz {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
