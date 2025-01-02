@@ -23,15 +23,9 @@ jobs:
         with:
           java-version: '11'
 
-      # Cache Maven dependencies (if you use Maven)
-      - name: Cache Maven dependencies
-        uses: actions/cache@v1
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
-
       # Build the project with Maven or Gradle
       - name: Build with Maven
-        run: mvn clean install -DskipTests
+        run: |
+          cd backend
+          mvn clean
+          mvn -B package --file pom.xml
