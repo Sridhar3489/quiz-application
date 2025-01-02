@@ -35,5 +35,4 @@ jobs:
         run: |
           cd backend
           cd quiz
-          mvn clean
-          mvn -B package --file pom.xml
+          mvn clean install
