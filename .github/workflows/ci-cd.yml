@@ -22,16 +22,6 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-          distribution: 'adoptopenjdk'
-
-      # Cache Gradle dependencies (if you use Gradle)
-      - name: Cache Gradle dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
 
       # Cache Maven dependencies (if you use Maven)
       - name: Cache Maven dependencies
