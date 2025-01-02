@@ -23,16 +23,21 @@ jobs:
           java-version: '17'
       
       - name: Cache Maven dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      # Build the project with Maven or Gradle
-      - name: Build with Maven
+      - name: Build and test with Maven
         run: |
-          cd backend
-          cd quiz
-          mvn clean install
+          cd backend/quiz  # Navigate to the correct folder where pom.xml is located
+          mvn clean install -DskipTests=false  # Run tests during build
+          
+      - name: Upload test results (optional)
+        if: failure()
+        run: |
+          mkdir -p $GITHUB_WORKSPACE/test-results
+          cp backend/quiz/target/surefire-reports/* $GITHUB_WORKSPACE/test-results
+        continue-on-error: true
